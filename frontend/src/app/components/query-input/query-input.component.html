@@ -1,0 +1,9 @@
+<div class="app-query-input">
+  <input
+    type="text"
+    placeholder="Type your question..."
+    [(ngModel)]="userQuery"
+    (keyup.enter)="submitQuery()"
+  />
+  <button (click)="submitQuery()">Send</button>
+</div>

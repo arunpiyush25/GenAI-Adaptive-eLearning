@@ -1,0 +1,108 @@
+.query-input {
+    margin: 40px auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    animation: fadeInUp 1s ease;
+  }
+  
+  textarea {
+    height: 120px;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+  }
+  
+  button {
+    padding: 12px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Improved chat area sizing */
+.chat-content {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+/* Scrollbar Styling */
+.chat-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+/* Enhance input area */
+.chat-input {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+/* Redesign query input and button inside app-query-input */
+.app-query-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  gap: 10px;
+}
+
+.app-query-input input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 1.05rem;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.app-query-input input:focus {
+  border-color: #6b5b95;
+  outline: none;
+  box-shadow: 0 0 8px rgba(107, 91, 149, 0.3);
+}
+
+/* Professional Submit Button */
+.app-query-input button {
+  padding: 12px 24px;
+  border-radius: 30px;
+  background-color: #6b5b95;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.app-query-input button:hover {
+  background-color: #58437c;
+}
+
+  

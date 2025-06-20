@@ -1,0 +1,15 @@
+<!-- dashboard.component.html -->
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<div class="dashboard-container">
+  <h2 class="dashboard-title">📊 Your Bloom’s Learning Progress</h2>
+  <div class="levels-grid">
+    <div class="level-card" *ngFor="let level of levels">
+      <h3 class="level-title">{{ level.name }}</h3>
+      <div class="progress-bar-container">
+        <div class="progress-bar" [ngStyle]="{'width': level.progress + '%'}"></div>
+      </div>
+      <p class="progress-text">{{ level.progress }}% complete</p>
+    </div>
+  </div>
+</div>

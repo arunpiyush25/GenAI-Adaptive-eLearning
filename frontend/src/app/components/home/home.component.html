@@ -1,0 +1,85 @@
+<app-navbar [chats]="chats" [currentChatId]="currentChatId"></app-navbar>
+<router-outlet></router-outlet>
+
+<div class="home-layout">
+    <!-- Sidebar for Chat Sessions -->
+    <app-chat-sidebar 
+      [chats]="chats" 
+      [currentChatId]="currentChatId?.toString() || ''"
+      (newChat)="startNewChat()" 
+      (selectChat)="selectChat($event)"
+      (deleteChat)="deleteChat($event)">
+    </app-chat-sidebar>
+  
+    <!-- Main Home Content -->
+    <div class="home-container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1 class="hero-title">Welcome to GenAI Learning Assistant</h1>
+        <p class="hero-subtitle">Personalized Learning Paths with GenAI-Powered Content Adaptation</p>
+        <button class="hero-button" (click)="scrollToInteraction()">Get Started</button>
+      </section>
+  
+      <!-- Features Section -->
+      <section class="features">
+        <div class="feature-card">
+          <h3>Adaptive Learning</h3>
+          <p>Content adapts to your learning level and goals.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Bloom’s Taxonomy Driven</h3>
+          <p>Progress through learning levels: Understand, Apply, Create.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Smart Prompting</h3>
+          <p>Generate optimized GenAI prompts with built-in support.</p>
+        </div>
+      </section>
+      
+  <!-- 🌱 Bloom’s Progress Dashboard -->
+  <!-- <app-dashboard [levels]="getCurrentChatLevels()"></app-dashboard> -->
+    
+<!-- Interaction Section -->
+<section class="interaction" id="interactionSection">
+  <div class="interaction-container">
+    <div class="chat-header">
+      <h2 class="interaction-title">Ask a Query to Begin</h2>
+    </div>
+    <div class="interaction-body">
+
+      <!-- Scrollable Chat Area -->
+      <div class="chat-content">
+
+        <!-- <app-loader *ngIf="isLoading" class="loader"></app-loader> -->
+
+        <div *ngIf="currentChatId" class="response-history">
+          <div *ngFor="let resp of currentResponses" class="chat-history">
+
+            <!-- User Query on Right -->
+            <div class="message user">
+              <div class="bubble">
+                <strong>Query:</strong> {{ resp.question }}
+              </div>
+            </div>
+
+            <!-- GenAI Response on Left -->
+            <div class="message ai">
+              <div class="bubble answer" [innerHTML]="resp.answer"></div>
+            </div>
+          </div>
+        </div>
+        <app-loader *ngIf="isLoading" class="loader"></app-loader>
+      </div>
+
+      <!-- Fixed Input Area -->
+      <div class="chat-input">
+        <app-query-input (querySubmitted)="handleQuery($event)"></app-query-input>
+        <!-- <button (click)="goToDashboard()">📈 View Bloom’s Dashboard</button> -->
+      </div>
+      </div>
+  </div>
+</section>
+
+    </div>
+  </div>
+  

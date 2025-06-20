@@ -1,0 +1,22 @@
+<!-- Toggle button -->
+<button class="toggle-sidebar" (click)="toggleSidebar()">☰</button>
+
+<!-- Sidebar -->
+<div class="sidebar" [class.open]="isOpen">
+  <button class="new-chat-btn" (click)="handleNewChat()">+ New Chat</button>
+  <ul class="chat-list">
+    <li 
+      *ngFor="let chat of chats"
+      [class.active]="chat.id === currentChatId">
+      
+      <span (click)="handleSelectChat(chat.id)" class="chat-title">
+        {{ chat.title }}
+      </span>
+      
+      <!-- 🗑️ Delete button -->
+      <button class="delete-btn" (click)="handleDeleteChat(chat.id)">
+        🗑️
+      </button>
+    </li>
+  </ul>
+</div>
